@@ -1,0 +1,3 @@
+/home/royi/psmonitor/build/CMakeFiles/psmonitor.dir
+/home/royi/psmonitor/build/CMakeFiles/edit_cache.dir
+/home/royi/psmonitor/build/CMakeFiles/rebuild_cache.dir

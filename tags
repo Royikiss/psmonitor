@@ -1,0 +1,30 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_EXCMD	mixed	/number, pattern, mixed, or combineV2/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
+!_TAG_PROC_CWD	/home/royi/psmonitor/	//
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	5.9.0	//
+ExistingProcess	include/psmonitor.h	/^class ExistingProcess : public Process {$/;"	c
+ExistingProcess	src/psmonitor.cc	/^ExistingProcess::ExistingProcess(pid_t pid) : pid(pid) {}$/;"	f	class:ExistingProcess
+NewProcess	include/psmonitor.h	/^class NewProcess : public Process {$/;"	c
+NewProcess	src/psmonitor.cc	/^NewProcess::NewProcess(const std::string& processName) : processName(processName), pid(-1) {}$/;"	f	class:NewProcess
+Process	include/psmonitor.h	/^class Process {$/;"	c
+ProcessMonitor	include/psmonitor.h	/^class ProcessMonitor {$/;"	c
+ProcessMonitor	src/psmonitor.cc	/^ProcessMonitor::ProcessMonitor(std::shared_ptr<Process> proc) : process(std::move(proc)) {}$/;"	f	class:ProcessMonitor
+_PSMONITOR_H	include/psmonitor.h	/^#define _PSMONITOR_H$/;"	d
+main	bata/test.cpp	/^int main() {$/;"	f	typeref:typename:int
+main	tests/psmonitor.cpp	/^int main(int argc, char* argv[]) {$/;"	f	typeref:typename:int
+monitor	src/psmonitor.cc	/^void ExistingProcess::monitor() {$/;"	f	class:ExistingProcess	typeref:typename:void
+monitor	src/psmonitor.cc	/^void NewProcess::monitor() {$/;"	f	class:NewProcess	typeref:typename:void
+parseArgs	src/psmonitor.cc	/^void parseArgs(int argc, char* argv[], std::shared_ptr<Process>& process) {$/;"	f	typeref:typename:void
+pid	include/psmonitor.h	/^    pid_t pid;                                              \/\/ 子进程的 PID$/;"	m	class:NewProcess	typeref:typename:pid_t
+pid	include/psmonitor.h	/^    pid_t pid;                                              \/\/ 要监视的进程号$/;"	m	class:ExistingProcess	typeref:typename:pid_t
+process	include/psmonitor.h	/^    std::shared_ptr<Process> process;                       \/\/ 监视的进程对象$/;"	m	class:ProcessMonitor	typeref:typename:std::shared_ptr<Process>
+processName	include/psmonitor.h	/^    std::string processName;                                \/\/ 程序名称$/;"	m	class:NewProcess	typeref:typename:std::string
+run	src/psmonitor.cc	/^void ProcessMonitor::run() {$/;"	f	class:ProcessMonitor	typeref:typename:void
+start	src/psmonitor.cc	/^void NewProcess::start() {$/;"	f	class:NewProcess	typeref:typename:void
