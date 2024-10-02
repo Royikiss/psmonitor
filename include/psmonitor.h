@@ -10,17 +10,19 @@
 
 #include <memory>
 #include <string>
+#include <unordered_map>
+#include <set>
 
 class Process {
 public:
-    virtual void monitor() = 0;                             // 监视功能需要在具体实现中定义
+    virtual void monitor(int sleep_time = 2) = 0; 
     virtual ~Process() = default;
 };
 
 class ExistingProcess : public Process {
 public:
     explicit ExistingProcess(pid_t pid);                    // 构造函数
-    void monitor() override;                                // 重写虚函数
+    void monitor(int) override;                                // 重写虚函数
 
 private:
     pid_t pid;                                              // 要监视的进程号
@@ -29,7 +31,7 @@ private:
 class NewProcess : public Process {
 public:
     explicit NewProcess(const std::string& processName);    // 构造函数
-    void monitor() override;                                // 重写虚函数
+    void monitor(int) override;                                // 重写虚函数
 
 private:
     void start();                                           // 启动新进程
@@ -39,14 +41,33 @@ private:
 
 class ProcessMonitor {
 public:
-    explicit ProcessMonitor(std::shared_ptr<Process> proc); // 构造函数
-    void run();                                             // 启动监视
+    explicit ProcessMonitor(std::shared_ptr<Process> proc);
+    void startmonitor(); 
 
 private:
-    std::shared_ptr<Process> process;                       // 监视的进程对象
+    std::shared_ptr<Process> process; 
 };
 
-// 参数解析函数声明
+class TaskOrganizer {
+public:
+    TaskOrganizer();
+    void addOption(const std::string &option, const std::string &value);
+    bool isOptionSeen(const std::string &option) const ;
+    void validateOptions() const;
+    std::unordered_map<std::string, std::string> getmap() const ;
+private:
+    std::set<std::string> seenOptions;
+    std::unordered_map<std::string, std::string> options;
+};
+
+enum Behavior {
+    RESTART
+};
+
+void _parseArgs(int argc, char *argv[], TaskOrganizer &organizer); 
+
+void taskGeneration(std::shared_ptr<Process> &process, TaskOrganizer &organizer);
+
 void parseArgs(int argc, char* argv[], std::shared_ptr<Process>& process);
 
 #endif

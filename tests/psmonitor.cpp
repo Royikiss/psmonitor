@@ -15,7 +15,7 @@ int main(int argc, char* argv[]) {
         parseArgs(argc, argv, process);
 
         ProcessMonitor monitor(process);
-        monitor.run(); // 开始监视
+        monitor.startmonitor(); // 开始监视
     } catch (const std::exception& e) {
         std::cerr << "Error: " << e.what() << std::endl;
         return 1;
